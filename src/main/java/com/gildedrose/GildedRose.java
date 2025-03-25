@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.update.ItemUpdateHandler;
+import com.gildedrose.updatehandler.ItemUpdateHandler;
 
 import java.util.List;
 

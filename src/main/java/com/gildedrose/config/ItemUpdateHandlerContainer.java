@@ -1,4 +1,6 @@
-package com.gildedrose.update;
+package com.gildedrose.config;
+
+import com.gildedrose.updatehandler.*;
 
 import java.util.List;
 

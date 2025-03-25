@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.update.*;
+import com.gildedrose.updatehandler.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
