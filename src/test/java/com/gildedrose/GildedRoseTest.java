@@ -16,54 +16,54 @@ class GildedRoseTest {
         Item vestMinus = new Item("+5 Dexterity Vest", -1, 20);
         Item elixir = new Item("Elixir of the Mongoose", 5, 7);
         Item elixirMinus = new Item("Elixir of the Mongoose", -1, 0);
-        Item[] items = new Item[] {vest, vestMinus, elixir, elixirMinus};
+        Item[] items = new Item[]{vest, vestMinus, elixir, elixirMinus};
         GildedRose app = new GildedRose(items, List.of(new DefaultItemUpdateHandler()));
 
         // when
         app.updateQuality();
 
         // then
-        assertEquals(vest.sellIn, 9);
-        assertEquals(vest.quality, 19);
+        assertEquals(9, vest.sellIn);
+        assertEquals(19, vest.quality);
 
-        assertEquals(vestMinus.sellIn, -2);
-        assertEquals(vestMinus.quality, 18);
+        assertEquals(-2, vestMinus.sellIn);
+        assertEquals(18, vestMinus.quality);
 
-        assertEquals(elixir.sellIn, 4);
-        assertEquals(elixir.quality, 6);
+        assertEquals(4, elixir.sellIn);
+        assertEquals(6, elixir.quality);
 
-        assertEquals(elixirMinus.sellIn, -2);
-        assertEquals(elixirMinus.quality, 0);
+        assertEquals(-2, elixirMinus.sellIn);
+        assertEquals(0, elixirMinus.quality);
     }
 
     @Test
     void agedBrieItemUpdateQualityTest() {
         // given
         Item agedBrie = new Item("Aged Brie", 2, 0);
-        Item[] items = new Item[] {agedBrie};
+        Item[] items = new Item[]{agedBrie};
         GildedRose app = new GildedRose(items, List.of(new AgedBrieUpdateHandler()));
 
         // when
         app.updateQuality();
 
         // then
-        assertEquals(agedBrie.sellIn, 1);
-        assertEquals(agedBrie.quality, 1);
+        assertEquals(1, agedBrie.sellIn);
+        assertEquals(1, agedBrie.quality);
     }
 
     @Test
     void sulfurasItemUpdateQualityTest() {
         // given
         Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 2, 80);
-        Item[] items = new Item[] {sulfuras};
+        Item[] items = new Item[]{sulfuras};
         GildedRose app = new GildedRose(items, List.of(new SulfurasUpdateHandler()));
 
         // when
         app.updateQuality();
 
         // then
-        assertEquals(sulfuras.sellIn, 2);
-        assertEquals(sulfuras.quality, 80);
+        assertEquals(2, sulfuras.sellIn);
+        assertEquals(80, sulfuras.quality);
     }
 
     @Test
@@ -74,24 +74,24 @@ class GildedRoseTest {
         Item passes5 = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20);
         Item passes0 = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 30);
 
-        Item[] items = new Item[] {passes15, passes10, passes5, passes0};
+        Item[] items = new Item[]{passes15, passes10, passes5, passes0};
         GildedRose app = new GildedRose(items, List.of(new BackstagePassesUpdateHandler()));
 
         // when
         app.updateQuality();
 
         // then
-        assertEquals(passes15.sellIn, 14);
-        assertEquals(passes15.quality, 21);
+        assertEquals(14, passes15.sellIn);
+        assertEquals(21, passes15.quality);
 
-        assertEquals(passes10.sellIn, 9);
-        assertEquals(passes10.quality, 12);
+        assertEquals(9, passes10.sellIn);
+        assertEquals(12, passes10.quality);
 
-        assertEquals(passes5.sellIn, 4);
-        assertEquals(passes5.quality, 23);
+        assertEquals(4, passes5.sellIn);
+        assertEquals(23, passes5.quality);
 
-        assertEquals(passes0.sellIn, -1);
-        assertEquals(passes0.quality, 0);
+        assertEquals(-1, passes0.sellIn);
+        assertEquals(0, passes0.quality);
     }
 
     @Test
@@ -102,24 +102,24 @@ class GildedRoseTest {
         Item conjured0 = new Item("Conjured Mana Cake", 0, 30);
         Item conjuredMinus = new Item("Conjured Mana Cake", -1, 10);
 
-        Item[] items = new Item[] {conjured10, conjured1, conjured0, conjuredMinus};
+        Item[] items = new Item[]{conjured10, conjured1, conjured0, conjuredMinus};
         GildedRose app = new GildedRose(items, List.of(new ConjuredUpdateHandler()));
 
         // when
         app.updateQuality();
 
         // then
-        assertEquals(conjured10.sellIn, 9);
-        assertEquals(conjured10.quality, 18);
+        assertEquals(9, conjured10.sellIn);
+        assertEquals(18, conjured10.quality);
 
-        assertEquals(conjured1.sellIn, 0);
-        assertEquals(conjured1.quality, 8);
+        assertEquals(0, conjured1.sellIn);
+        assertEquals(8, conjured1.quality);
 
-        assertEquals(conjured0.sellIn, -1);
-        assertEquals(conjured0.quality, 26);
+        assertEquals(-1, conjured0.sellIn);
+        assertEquals(26, conjured0.quality);
 
-        assertEquals(conjuredMinus.sellIn, -2);
-        assertEquals(conjuredMinus.quality, 6);
+        assertEquals(-2, conjuredMinus.sellIn);
+        assertEquals(6, conjuredMinus.quality);
     }
 
 }
