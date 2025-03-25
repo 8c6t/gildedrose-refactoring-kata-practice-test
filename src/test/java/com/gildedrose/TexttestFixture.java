@@ -24,6 +24,7 @@ public class TexttestFixture {
             new AgedBrieUpdateHandler(),
             new BackstagePassesUpdateHandler(),
             new SulfurasUpdateHandler(),
+            new ConjuredUpdateHandler(),
             new DefaultItemUpdateHandler()
         ));
 

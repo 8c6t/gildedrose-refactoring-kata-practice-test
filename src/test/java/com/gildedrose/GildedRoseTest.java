@@ -1,9 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.update.AgedBrieUpdateHandler;
-import com.gildedrose.update.BackstagePassesUpdateHandler;
-import com.gildedrose.update.DefaultItemUpdateHandler;
-import com.gildedrose.update.SulfurasUpdateHandler;
+import com.gildedrose.update.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -95,6 +92,34 @@ class GildedRoseTest {
 
         assertEquals(passes0.sellIn, -1);
         assertEquals(passes0.quality, 0);
+    }
+
+    @Test
+    void ConjuredItemUpdateQualityTest() {
+        // given
+        Item conjured10 = new Item("Conjured Mana Cake", 10, 20);
+        Item conjured1 = new Item("Conjured Mana Cake", 1, 10);
+        Item conjured0 = new Item("Conjured Mana Cake", 0, 30);
+        Item conjuredMinus = new Item("Conjured Mana Cake", -1, 10);
+
+        Item[] items = new Item[] {conjured10, conjured1, conjured0, conjuredMinus};
+        GildedRose app = new GildedRose(items, List.of(new ConjuredUpdateHandler()));
+
+        // when
+        app.updateQuality();
+
+        // then
+        assertEquals(conjured10.sellIn, 9);
+        assertEquals(conjured10.quality, 18);
+
+        assertEquals(conjured1.sellIn, 0);
+        assertEquals(conjured1.quality, 8);
+
+        assertEquals(conjured0.sellIn, -1);
+        assertEquals(conjured0.quality, 26);
+
+        assertEquals(conjuredMinus.sellIn, -2);
+        assertEquals(conjuredMinus.quality, 6);
     }
 
 }
