@@ -1,6 +1,12 @@
 package com.gildedrose;
 
+import com.gildedrose.update.AgedBrieUpdateHandler;
+import com.gildedrose.update.BackstagePassesUpdateHandler;
+import com.gildedrose.update.DefaultItemUpdateHandler;
+import com.gildedrose.update.SulfurasUpdateHandler;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,7 +20,7 @@ class GildedRoseTest {
         Item elixir = new Item("Elixir of the Mongoose", 5, 7);
         Item elixirMinus = new Item("Elixir of the Mongoose", -1, 0);
         Item[] items = new Item[] {vest, vestMinus, elixir, elixirMinus};
-        GildedRose app = new GildedRose(items);
+        GildedRose app = new GildedRose(items, List.of(new DefaultItemUpdateHandler()));
 
         // when
         app.updateQuality();
@@ -38,7 +44,7 @@ class GildedRoseTest {
         // given
         Item agedBrie = new Item("Aged Brie", 2, 0);
         Item[] items = new Item[] {agedBrie};
-        GildedRose app = new GildedRose(items);
+        GildedRose app = new GildedRose(items, List.of(new AgedBrieUpdateHandler()));
 
         // when
         app.updateQuality();
@@ -53,7 +59,7 @@ class GildedRoseTest {
         // given
         Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 2, 80);
         Item[] items = new Item[] {sulfuras};
-        GildedRose app = new GildedRose(items);
+        GildedRose app = new GildedRose(items, List.of(new SulfurasUpdateHandler()));
 
         // when
         app.updateQuality();
@@ -72,7 +78,7 @@ class GildedRoseTest {
         Item passes0 = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 30);
 
         Item[] items = new Item[] {passes15, passes10, passes5, passes0};
-        GildedRose app = new GildedRose(items);
+        GildedRose app = new GildedRose(items, List.of(new BackstagePassesUpdateHandler()));
 
         // when
         app.updateQuality();
