@@ -1,8 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.update.*;
-
-import java.util.List;
+import com.gildedrose.update.ItemUpdateHandlerContainer;
 
 public class TexttestFixture {
     public static void main(String[] args) {
@@ -20,13 +18,7 @@ public class TexttestFixture {
                 // this conjured item does not work properly yet
                 new Item("Conjured Mana Cake", 3, 6) };
 
-        GildedRose app = new GildedRose(items, List.of(
-            new AgedBrieUpdateHandler(),
-            new BackstagePassesUpdateHandler(),
-            new SulfurasUpdateHandler(),
-            new ConjuredUpdateHandler(),
-            new DefaultItemUpdateHandler()
-        ));
+        GildedRose app = new GildedRose(items, ItemUpdateHandlerContainer.getItemUpdateHandlers());
 
         int days = 2;
         if (args.length > 0) {
